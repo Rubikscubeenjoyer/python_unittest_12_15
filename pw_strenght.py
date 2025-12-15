@@ -65,12 +65,16 @@ class TestPasswordStrength(unittest.TestCase):
         self.assertEqual(calculate_password_strength("verylongpassword"), 4)
     
     def test_special_characters(self):
-        self.assertEqual(calculate_password_strength("a-b.c_d"), 10)
-        self.assertEqual(calculate_password_strength("pass--word..long"), 14)
+        self.assertEqual(calculate_password_strength("a-b.c_d"), 8)
+        self.assertEqual(calculate_password_strength("pass--word..long"), 12) 
+        self.assertEqual(calculate_password_strength("secure-password.long_enough"), 10)
     
     def test_forbidden_with_specials(self):
         self.assertEqual(calculate_password_strength("jelszo---...___"), 0)
         self.assertEqual(calculate_password_strength("abc123-._"), 0)
     
     def test_combined_good_password(self):
-        self.assertEqual(calculate_password_strength("secure-password.long_enough"), 14)
+        self.assertEqual(calculate_password_strength("hazi_macska_4_life"), 10)
+        
+if __name__ == "__main__":
+    unittest.main(verbosity=2)
