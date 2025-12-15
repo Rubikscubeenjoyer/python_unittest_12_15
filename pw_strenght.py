@@ -75,6 +75,6 @@ class TestPasswordStrength(unittest.TestCase):
     
     def test_combined_good_password(self):
         self.assertEqual(calculate_password_strength("hazi_macska_4_life"), 10)
-        
+
 if __name__ == "__main__":
-    unittest.main(verbosity=2)
+    unittest.main()
